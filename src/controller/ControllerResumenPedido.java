@@ -18,7 +18,7 @@ import view.frmResumenPedido;
  * @author jonny
  */
 public class ControllerResumenPedido {
-    
+
     ControllerRegistro registro = new ControllerRegistro();
     frmResumenPedido vista = new frmResumenPedido();
     frmPedido vistaregistro = new frmPedido();
@@ -26,6 +26,7 @@ public class ControllerResumenPedido {
     public ControllerResumenPedido(frmResumenPedido vista) {
         this.vista = vista;
         controleventos();
+        //mostrarLabel();
     }
 
     public void controleventos() {
@@ -33,14 +34,25 @@ public class ControllerResumenPedido {
         this.vista.getBtnEnviar().addActionListener(l -> mensaje());
         this.vista.getBtnCancelar().addActionListener(l -> back());
     }
-    
-    public void back(){
-        vistaregistro.setVisible(true);
-        new ControllerRegistro(vistaregistro);
-        vistaregistro.setLocationRelativeTo(null);
+
+    public void back() {
+        this.vista.dispose();
     }
-    public void mensaje(){
+
+    public void mensaje() {
         JOptionPane.showMessageDialog(null, "Pedido Enviado");
+
     }
-    
+
+    /*public void mostrarLabel() {
+        try {
+                 int num = 0; num = Integer.parseInt(vistaregistro.getTxtCantidad().getText());
+                 String tipo = ""; tipo = (String) vistaregistro.getCmbxTipoMed().getSelectedItem();
+                 String nom = ""; nom = vistaregistro.getTxtNombreMed().getText();
+                 frmResumenPedido.jLabelMedicamento.setText(num + " unidades del " + tipo + " " + nom);
+                
+        }catch(Exception ex){
+            
+        }
+    }*/
 }

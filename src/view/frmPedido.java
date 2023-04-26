@@ -267,6 +267,7 @@ public class frmPedido extends javax.swing.JFrame {
         panelPedidos.add(txtCantidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 210, 160, -1));
 
         cmbxTipoMed.setBackground(new java.awt.Color(171, 187, 176));
+        cmbxTipoMed.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
         cmbxTipoMed.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "<<Seleccione>>", "Analgésico", "Analéptico", "Anestésico", "Antiácido", "Antidepresivo ", "Antibióticos" }));
         panelPedidos.add(cmbxTipoMed, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 150, 160, -1));
 
@@ -302,6 +303,7 @@ public class frmPedido extends javax.swing.JFrame {
         checkPrincipal.setText("Principal");
         panelPedidos.add(checkPrincipal, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 210, -1, -1));
 
+        jTablePedidos.setBackground(new java.awt.Color(171, 187, 176));
         jTablePedidos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 

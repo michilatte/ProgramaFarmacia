@@ -22,6 +22,7 @@ import view.*;
  */
 public class ControllerRegistro {
 
+    Pedido pedido = new Pedido();
     ArrayList<Pedido> listapedidos = new ArrayList<>();
     private frmPedido vista = new frmPedido();
     frmResumenPedido vistapedido = new frmResumenPedido();
@@ -38,12 +39,11 @@ public class ControllerRegistro {
     public void controleventos() {
 
         this.vista.getBtnGUARDAR().addActionListener(l -> guardarPedido());
-        //this.vista.getjButtonLimpiar().addActionListener(l -> Limpiar());
+        this.vista.getjButtonLimpiar().addActionListener(l -> Limpiar());
     }
 
     public void guardarPedido() {
 
-        Pedido pedido = new Pedido();
         if (validaciones() == true) {
             pedido.setNombre_med(this.vista.getTxtNombreMed().getText());
             pedido.setTipo_med((String) this.vista.getCmbxTipoMed().getSelectedItem());
@@ -63,14 +63,13 @@ public class ControllerRegistro {
             pedido.setDistribuidor(distribuidor);
             pedido.setSucursal(Principal() + " " + Secundaria());
 
-            try{
+            try {
                 listapedidos.add(pedido);
                 tablalistar();
-            }catch(Exception ex){
+            } catch (Exception ex) {
                 ex.getMessage();
             }
             vervista();
-            //Limpiar();
         }
 
     }
@@ -96,16 +95,23 @@ public class ControllerRegistro {
         vistapedido.setVisible(true);
         new ControllerResumenPedido(vistapedido);
         vistapedido.setLocationRelativeTo(null);
+        mostrarLabel1();
 
     }
 
-    public void Limpiar() {
-        vista.getTxtNombreMed().setText("");
-        vista.getTxtCantidad().setText("");
-        vista.getCmbxTipoMed().setSelectedIndex(0);
-        vista.getButtonGroupDistribuidores().clearSelection();
-        vista.getCheckPrincipal().setSelected(false);
-        vista.getCheckSecundaria().setSelected(false);
+    public void mostrarLabel1() {
+        //10 unidades del antibiótico amoxicilina. 
+        int num = 0;
+        num = Integer.parseInt(vista.getTxtCantidad().getText());
+
+        String tipo = "";
+        tipo = (String) vista.getCmbxTipoMed().getSelectedItem();
+        
+        String nom = vista.getTxtNombreMed().getText();
+
+        frmResumenPedido.jLabelMedicamento.setText(nom);
+        frmResumenPedido.jLabelMedicamento.setText(num + " unidades del " + tipo + " " + nom);
+
     }
 
     public String Principal() {
@@ -145,26 +151,36 @@ public class ControllerRegistro {
                             if (this.vista.getButtonGroupDistribuidores().getButtonCount() != 0) {
                                 validado = true;
                             } else {
-                                JOptionPane.showMessageDialog(null,"Seleccione un distribuidor");
+                                JOptionPane.showMessageDialog(null, "Seleccione un distribuidor");
                             }
 
                         } else {
-                            JOptionPane.showMessageDialog(null,"Ingrese una cantidad en numeros");
+                            JOptionPane.showMessageDialog(null, "Ingrese una cantidad en numeros");
                         }
                     } else {
-                        JOptionPane.showMessageDialog(null,"Ingrese una cantidad de producto a comprar");
+                        JOptionPane.showMessageDialog(null, "Ingrese una cantidad de producto a comprar");
                     }
                 } else {
-                    JOptionPane.showMessageDialog(null,"Debe seleccionar un tipo de medicamento");
+                    JOptionPane.showMessageDialog(null, "Debe seleccionar un tipo de medicamento");
                 }
 
             } else {
-                JOptionPane.showMessageDialog(null,"Nombre de medicamento incorrecto");
+                JOptionPane.showMessageDialog(null, "Nombre de medicamento incorrecto");
             }
         } else {
-           JOptionPane.showMessageDialog(null,"Ingrese un nombre de Medicamento");
+            JOptionPane.showMessageDialog(null, "Ingrese un nombre de Medicamento");
         }
 
         return validado;
     }
+
+    public void Limpiar() {
+        vista.getTxtNombreMed().setText("");
+        vista.getTxtCantidad().setText("");
+        vista.getCmbxTipoMed().setSelectedIndex(0);
+        vista.getButtonGroupDistribuidores().clearSelection();
+        vista.getCheckPrincipal().setSelected(false);
+        vista.getCheckSecundaria().setSelected(false);
+    }
+
 }

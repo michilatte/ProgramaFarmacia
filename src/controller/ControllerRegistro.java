@@ -20,10 +20,12 @@ import view.*;
  */
 public class ControllerRegistro {
 
-    
     ArrayList<Pedido> listapedidos = new ArrayList<>();
     private frmPedido vista = new frmPedido();
     frmResumenPedido vistapedido = new frmResumenPedido();
+
+    public ControllerRegistro() {
+    }
 
     public ControllerRegistro(frmPedido vista) {
         this.vista = vista;
@@ -59,8 +61,25 @@ public class ControllerRegistro {
         pedido.setSucursal(Principal() + " " + Secundaria());
 
         listapedidos.add(pedido);
-        vervista();
+        tablalistar();
+        //vervista();
 
+    }
+
+    public void tablalistar() {
+        DefaultTableModel modeloDefault = new DefaultTableModel(new String[]{"Nombre del Medicamento", "Tipo de Medicamento", "Cantidad", "Distribuidor", "Sucursal"}, listapedidos.size());
+        vista.getjTablePedidos().setModel(modeloDefault);
+
+        TableModel modeloDatos = vista.getjTablePedidos().getModel();
+        for (int i = 0; i < listapedidos.size(); i++) {
+            Pedido pedido = listapedidos.get(i);
+            modeloDatos.setValueAt(pedido.getNombre_med(), i, 0);
+            modeloDatos.setValueAt(pedido.getTipo_med(), i, 1);
+            modeloDatos.setValueAt(pedido.getCantidad(), i, 2);
+            modeloDatos.setValueAt(pedido.getDistribuidor(), i, 3);
+            modeloDatos.setValueAt(pedido.getSucursal(), i, 4);
+
+        }
     }
 
     public void vervista() {

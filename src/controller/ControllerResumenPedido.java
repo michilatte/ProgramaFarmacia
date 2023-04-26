@@ -18,7 +18,7 @@ import view.frmResumenPedido;
  */
 public class ControllerResumenPedido {
     
-    ControllerRegistro registro;
+    ControllerRegistro registro = new ControllerRegistro();
     frmResumenPedido vista = new frmResumenPedido();
     frmPedido vistaregistro = new frmPedido();
 

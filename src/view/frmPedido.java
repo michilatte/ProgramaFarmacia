@@ -165,6 +165,22 @@ public class frmPedido extends javax.swing.JFrame {
     public void setTxtNombreMed(JTextField txtNombreMed) {
         this.txtNombreMed = txtNombreMed;
     }
+
+    public JScrollPane getjScrollPane1() {
+        return jScrollPane1;
+    }
+
+    public void setjScrollPane1(JScrollPane jScrollPane1) {
+        this.jScrollPane1 = jScrollPane1;
+    }
+
+    public JTable getjTablePedidos() {
+        return jTablePedidos;
+    }
+
+    public void setjTablePedidos(JTable jTablePedidos) {
+        this.jTablePedidos = jTablePedidos;
+    }
     
     
     @SuppressWarnings("unchecked")
@@ -188,6 +204,8 @@ public class frmPedido extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         checkSecundaria = new javax.swing.JCheckBox();
         checkPrincipal = new javax.swing.JCheckBox();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTablePedidos = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -275,6 +293,18 @@ public class frmPedido extends javax.swing.JFrame {
         checkPrincipal.setText("Principal");
         panelPedidos.add(checkPrincipal, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 210, -1, -1));
 
+        jTablePedidos.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Nombre del Medicamento", "Tipo de Medicamento", "Cantidad", "Distribuidor", "Sucursal"
+            }
+        ));
+        jScrollPane1.setViewportView(jTablePedidos);
+
+        panelPedidos.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 330, 770, 160));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -283,7 +313,7 @@ public class frmPedido extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panelPedidos, javax.swing.GroupLayout.DEFAULT_SIZE, 431, Short.MAX_VALUE)
+            .addComponent(panelPedidos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -315,6 +345,8 @@ public class frmPedido extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable jTablePedidos;
     private javax.swing.JLabel lbltitulo;
     private javax.swing.JPanel panelPedidos;
     private javax.swing.JRadioButton rbtn1;

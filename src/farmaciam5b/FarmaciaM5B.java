@@ -4,23 +4,24 @@
  */
 package farmaciam5b;
 
+import controller.ControllerRegistro;
+import controller.ControllerResumenPedido;
 import java.util.ArrayList;
 import model.Pedido;
 import view.frmPedido;
+import view.frmResumenPedido;
 
 /**
  *
  * @author USUARIO
  */
 public class FarmaciaM5B {
-
-     public static ArrayList<Pedido> pedido = new ArrayList<>();
      
     public static void main(String[] args) {
-        frmPedido vist = new frmPedido();
-        vist.setVisible(true);
         
-        System.out.println("aaa");
+        frmPedido vista = new frmPedido();
+        ControllerRegistro controlador = new ControllerRegistro(vista);
+        
     }
     
 }

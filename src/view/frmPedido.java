@@ -5,6 +5,16 @@
 package view;
 
 import java.util.ArrayList;
+import javax.swing.ButtonGroup;
+import javax.swing.JButton;
+import javax.swing.JCheckBox;
+import javax.swing.JComboBox;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JRadioButton;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
+import javax.swing.JTextField;
 import model.Pedido;
 
 /**
@@ -18,14 +28,144 @@ public class frmPedido extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
     }
-    
 
-    ArrayList<Pedido> pedido = new ArrayList<>();
-    String nombre_med;
-    String tipo_med;
-    int cantidad;
-    String distribuidor;
-    String sucursal;
+
+    public JButton getBtnGUARDAR() {
+        return btnGUARDAR;
+    }
+
+    public void setBtnGUARDAR(JButton btnGUARDAR) {
+        this.btnGUARDAR = btnGUARDAR;
+    }
+
+    public ButtonGroup getButtonGroupDistribuidores() {
+        return buttonGroupDistribuidores;
+    }
+
+    public void setButtonGroupDistribuidores(ButtonGroup buttonGroupDistribuidores) {
+        this.buttonGroupDistribuidores = buttonGroupDistribuidores;
+    }
+
+    public JCheckBox getCheckPrincipal() {
+        return checkPrincipal;
+    }
+
+    public void setCheckPrincipal(JCheckBox checkPrincipal) {
+        this.checkPrincipal = checkPrincipal;
+    }
+
+    public JCheckBox getCheckSecundaria() {
+        return checkSecundaria;
+    }
+
+    public void setCheckSecundaria(JCheckBox checkSecundaria) {
+        this.checkSecundaria = checkSecundaria;
+    }
+
+    public JComboBox<String> getCmbxTipoMed() {
+        return cmbxTipoMed;
+    }
+
+    public void setCmbxTipoMed(JComboBox<String> cmbxTipoMed) {
+        this.cmbxTipoMed = cmbxTipoMed;
+    }
+
+    public JLabel getjLabel1() {
+        return jLabel1;
+    }
+
+    public void setjLabel1(JLabel jLabel1) {
+        this.jLabel1 = jLabel1;
+    }
+
+    public JLabel getjLabel2() {
+        return jLabel2;
+    }
+
+    public void setjLabel2(JLabel jLabel2) {
+        this.jLabel2 = jLabel2;
+    }
+
+    public JLabel getjLabel3() {
+        return jLabel3;
+    }
+
+    public void setjLabel3(JLabel jLabel3) {
+        this.jLabel3 = jLabel3;
+    }
+
+    public JLabel getjLabel4() {
+        return jLabel4;
+    }
+
+    public void setjLabel4(JLabel jLabel4) {
+        this.jLabel4 = jLabel4;
+    }
+
+    public JLabel getjLabel5() {
+        return jLabel5;
+    }
+
+    public void setjLabel5(JLabel jLabel5) {
+        this.jLabel5 = jLabel5;
+    }
+
+    public JLabel getLbltitulo() {
+        return lbltitulo;
+    }
+
+    public void setLbltitulo(JLabel lbltitulo) {
+        this.lbltitulo = lbltitulo;
+    }
+
+    public JPanel getPanelPedidos() {
+        return panelPedidos;
+    }
+
+    public void setPanelPedidos(JPanel panelPedidos) {
+        this.panelPedidos = panelPedidos;
+    }
+
+    public JRadioButton getRbtn1() {
+        return rbtn1;
+    }
+
+    public void setRbtn1(JRadioButton rbtn1) {
+        this.rbtn1 = rbtn1;
+    }
+
+    public JRadioButton getRbtn2() {
+        return rbtn2;
+    }
+
+    public void setRbtn2(JRadioButton rbtn2) {
+        this.rbtn2 = rbtn2;
+    }
+
+    public JRadioButton getRbtn3() {
+        return rbtn3;
+    }
+
+    public void setRbtn3(JRadioButton rbtn3) {
+        this.rbtn3 = rbtn3;
+    }
+
+    public JTextField getTxtCantidad() {
+        return txtCantidad;
+    }
+
+    public void setTxtCantidad(JTextField txtCantidad) {
+        this.txtCantidad = txtCantidad;
+    }
+
+    public JTextField getTxtNombreMed() {
+        return txtNombreMed;
+    }
+
+    public void setTxtNombreMed(JTextField txtNombreMed) {
+        this.txtNombreMed = txtNombreMed;
+    }
+    
     
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -46,8 +186,8 @@ public class frmPedido extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         rbtn2 = new javax.swing.JRadioButton();
         jLabel5 = new javax.swing.JLabel();
-        cbxSecundaria = new javax.swing.JCheckBox();
-        cbxPrincipal = new javax.swing.JCheckBox();
+        checkSecundaria = new javax.swing.JCheckBox();
+        checkPrincipal = new javax.swing.JCheckBox();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -69,7 +209,7 @@ public class frmPedido extends javax.swing.JFrame {
                 btnGUARDARActionPerformed(evt);
             }
         });
-        panelPedidos.add(btnGUARDAR, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 300, 70, 40));
+        panelPedidos.add(btnGUARDAR, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 270, 70, 40));
 
         rbtn1.setBackground(new java.awt.Color(171, 187, 176));
         buttonGroupDistribuidores.add(rbtn1);
@@ -122,18 +262,18 @@ public class frmPedido extends javax.swing.JFrame {
         jLabel5.setText("Cantidad:");
         panelPedidos.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 210, -1, 20));
 
-        cbxSecundaria.setBackground(new java.awt.Color(171, 187, 176));
-        cbxSecundaria.setText("Secundaria");
-        cbxSecundaria.addActionListener(new java.awt.event.ActionListener() {
+        checkSecundaria.setBackground(new java.awt.Color(171, 187, 176));
+        checkSecundaria.setText("Secundaria");
+        checkSecundaria.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cbxSecundariaActionPerformed(evt);
+                checkSecundariaActionPerformed(evt);
             }
         });
-        panelPedidos.add(cbxSecundaria, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 210, -1, -1));
+        panelPedidos.add(checkSecundaria, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 210, -1, -1));
 
-        cbxPrincipal.setBackground(new java.awt.Color(171, 187, 176));
-        cbxPrincipal.setText("Principal");
-        panelPedidos.add(cbxPrincipal, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 210, -1, -1));
+        checkPrincipal.setBackground(new java.awt.Color(171, 187, 176));
+        checkPrincipal.setText("Principal");
+        panelPedidos.add(checkPrincipal, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 210, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -143,7 +283,7 @@ public class frmPedido extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panelPedidos, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 382, Short.MAX_VALUE)
+            .addComponent(panelPedidos, javax.swing.GroupLayout.DEFAULT_SIZE, 431, Short.MAX_VALUE)
         );
 
         pack();
@@ -151,80 +291,24 @@ public class frmPedido extends javax.swing.JFrame {
 
     private void btnGUARDARActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGUARDARActionPerformed
 
-        nombre_med = this.txtNombreMed.getText();
-        tipo_med = (String)this.cmbxTipoMed.getSelectedItem();
-        cantidad = Integer.parseInt(this.txtCantidad.getText());
-
-        distribuidor = "";
-        if (this.rbtn1.isSelected()) {
-            distribuidor = "COFARMA";
-        } else if (this.rbtn2.isSelected()) {
-            distribuidor = "EMPSEPHAR ";
-        }else if (this.rbtn3.isSelected()) {
-            distribuidor = "CEMEFAR ";
-        }
-        Pedido p = new Pedido(nombre_med, tipo_med, cantidad, distribuidor, sucursal);
-        pedido.add(p);
-        Limpiar();
+        
     }//GEN-LAST:event_btnGUARDARActionPerformed
 
-    public void Limpiar() {
-        txtNombreMed.setText("");
-        txtCantidad.setText("");
-        cmbxTipoMed.setSelectedIndex(0);
-        buttonGroupDistribuidores.clearSelection();
-        cbxPrincipal.setSelected(false);
-        cbxSecundaria.setSelected(false);
-    }
     
     private void rbtn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbtn1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_rbtn1ActionPerformed
 
-    private void cbxSecundariaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxSecundariaActionPerformed
+    private void checkSecundariaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkSecundariaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_cbxSecundariaActionPerformed
+    }//GEN-LAST:event_checkSecundariaActionPerformed
 
-    
-    
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(frmPedido.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(frmPedido.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(frmPedido.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(frmPedido.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new frmPedido().setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnGUARDAR;
     private javax.swing.ButtonGroup buttonGroupDistribuidores;
-    private javax.swing.JCheckBox cbxPrincipal;
-    private javax.swing.JCheckBox cbxSecundaria;
+    private javax.swing.JCheckBox checkPrincipal;
+    private javax.swing.JCheckBox checkSecundaria;
     private javax.swing.JComboBox<String> cmbxTipoMed;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

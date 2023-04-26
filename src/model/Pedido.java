@@ -71,6 +71,10 @@ public class Pedido {
         return "Pedido{" + "nombre_med=" + nombre_med + ", tipo_med=" + tipo_med + ", cantidad=" + cantidad + ", distribuidor=" + distribuidor + ", sucursal=" + sucursal + '}';
     }
     
+    public void mostrarDatos() {
+        System.out.printf("%-20S%-20S%-20S%-20S%-20S%n", nombre_med, tipo_med, cantidad, distribuidor, sucursal);
+    }
+    
     
 }
 

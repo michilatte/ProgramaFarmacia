@@ -4,6 +4,12 @@
  */
 package view;
 
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
+
 /**
  *
  * @author USUARIO
@@ -13,7 +19,58 @@ public class frmResumenPedido extends javax.swing.JFrame {
     
     public frmResumenPedido() {
         initComponents();
+        this.setLocationRelativeTo(null);
     }
+
+    public JButton getBtnCancelar() {
+        return btnCancelar;
+    }
+
+    public void setBtnCancelar(JButton btnCancelar) {
+        this.btnCancelar = btnCancelar;
+    }
+
+    public JButton getBtnEnviar() {
+        return btnEnviar;
+    }
+
+    public void setBtnEnviar(JButton btnEnviar) {
+        this.btnEnviar = btnEnviar;
+    }
+
+    public JScrollPane getjScrollPane1() {
+        return jScrollPane1;
+    }
+
+    public void setjScrollPane1(JScrollPane jScrollPane1) {
+        this.jScrollPane1 = jScrollPane1;
+    }
+
+    public JTable getjTablePedidos() {
+        return jTablePedidos;
+    }
+
+    public void setjTablePedidos(JTable jTablePedidos) {
+        this.jTablePedidos = jTablePedidos;
+    }
+
+    public JLabel getLbltitulo() {
+        return lbltitulo;
+    }
+
+    public void setLbltitulo(JLabel lbltitulo) {
+        this.lbltitulo = lbltitulo;
+    }
+
+    public JPanel getPanelPedidos() {
+        return panelPedidos;
+    }
+
+    public void setPanelPedidos(JPanel panelPedidos) {
+        this.panelPedidos = panelPedidos;
+    }
+    
+    
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -23,6 +80,8 @@ public class frmResumenPedido extends javax.swing.JFrame {
         lbltitulo = new javax.swing.JLabel();
         btnEnviar = new javax.swing.JButton();
         btnCancelar = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTablePedidos = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -44,7 +103,7 @@ public class frmResumenPedido extends javax.swing.JFrame {
                 btnEnviarActionPerformed(evt);
             }
         });
-        panelPedidos.add(btnEnviar, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 300, 70, 40));
+        panelPedidos.add(btnEnviar, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 290, 70, 40));
 
         btnCancelar.setBackground(new java.awt.Color(171, 187, 176));
         btnCancelar.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -55,7 +114,19 @@ public class frmResumenPedido extends javax.swing.JFrame {
                 btnCancelarActionPerformed(evt);
             }
         });
-        panelPedidos.add(btnCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 300, 90, 40));
+        panelPedidos.add(btnCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 290, 90, 40));
+
+        jTablePedidos.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Nombre del Medicamento", "Tipo de Medicamento", "Cantidad", "Distribuidor", "Sucursal"
+            }
+        ));
+        jScrollPane1.setViewportView(jTablePedidos);
+
+        panelPedidos.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 350, 770, 160));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -67,7 +138,7 @@ public class frmResumenPedido extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panelPedidos, javax.swing.GroupLayout.DEFAULT_SIZE, 409, Short.MAX_VALUE)
+            .addComponent(panelPedidos, javax.swing.GroupLayout.DEFAULT_SIZE, 515, Short.MAX_VALUE)
         );
 
         pack();
@@ -84,41 +155,13 @@ public class frmResumenPedido extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(frmResumenPedido.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(frmResumenPedido.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(frmResumenPedido.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(frmResumenPedido.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
 
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new frmResumenPedido().setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCancelar;
     private javax.swing.JButton btnEnviar;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable jTablePedidos;
     private javax.swing.JLabel lbltitulo;
     private javax.swing.JPanel panelPedidos;
     // End of variables declaration//GEN-END:variables

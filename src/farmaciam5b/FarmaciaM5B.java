@@ -19,6 +19,8 @@ public class FarmaciaM5B {
     public static void main(String[] args) {
         frmPedido vist = new frmPedido();
         vist.setVisible(true);
+        
+        System.out.println("aaa");
     }
     
 }

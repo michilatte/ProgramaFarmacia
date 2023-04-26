@@ -38,22 +38,6 @@ public class frmResumenPedido extends javax.swing.JFrame {
         this.btnEnviar = btnEnviar;
     }
 
-    public JScrollPane getjScrollPane1() {
-        return jScrollPane1;
-    }
-
-    public void setjScrollPane1(JScrollPane jScrollPane1) {
-        this.jScrollPane1 = jScrollPane1;
-    }
-
-    public JTable getjTablePedidos() {
-        return jTablePedidos;
-    }
-
-    public void setjTablePedidos(JTable jTablePedidos) {
-        this.jTablePedidos = jTablePedidos;
-    }
-
     public JLabel getLbltitulo() {
         return lbltitulo;
     }
@@ -80,8 +64,8 @@ public class frmResumenPedido extends javax.swing.JFrame {
         lbltitulo = new javax.swing.JLabel();
         btnEnviar = new javax.swing.JButton();
         btnCancelar = new javax.swing.JButton();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTablePedidos = new javax.swing.JTable();
+        jLabelDireccion = new javax.swing.JLabel();
+        jLabelMedicamento = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -91,8 +75,8 @@ public class frmResumenPedido extends javax.swing.JFrame {
         panelPedidos.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lbltitulo.setFont(new java.awt.Font("Tempus Sans ITC", 1, 18)); // NOI18N
-        lbltitulo.setText("FARMACIA || RESUMEN DE PEDIDOS");
-        panelPedidos.add(lbltitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 30, 220, -1));
+        lbltitulo.setText("RESUMEN DEL PEDIDO");
+        panelPedidos.add(lbltitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 30, 220, -1));
 
         btnEnviar.setBackground(new java.awt.Color(171, 187, 176));
         btnEnviar.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -103,7 +87,7 @@ public class frmResumenPedido extends javax.swing.JFrame {
                 btnEnviarActionPerformed(evt);
             }
         });
-        panelPedidos.add(btnEnviar, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 290, 70, 40));
+        panelPedidos.add(btnEnviar, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 300, 70, 30));
 
         btnCancelar.setBackground(new java.awt.Color(171, 187, 176));
         btnCancelar.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -114,31 +98,19 @@ public class frmResumenPedido extends javax.swing.JFrame {
                 btnCancelarActionPerformed(evt);
             }
         });
-        panelPedidos.add(btnCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 290, 90, 40));
-
-        jTablePedidos.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-                "Nombre del Medicamento", "Tipo de Medicamento", "Cantidad", "Distribuidor", "Sucursal"
-            }
-        ));
-        jScrollPane1.setViewportView(jTablePedidos);
-
-        panelPedidos.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 350, 770, 160));
+        panelPedidos.add(btnCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 300, 90, 30));
+        panelPedidos.add(jLabelDireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 160, 390, 30));
+        panelPedidos.add(jLabelMedicamento, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 100, 390, 30));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(panelPedidos, javax.swing.GroupLayout.PREFERRED_SIZE, 848, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(panelPedidos, javax.swing.GroupLayout.PREFERRED_SIZE, 560, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panelPedidos, javax.swing.GroupLayout.DEFAULT_SIZE, 515, Short.MAX_VALUE)
+            .addComponent(panelPedidos, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -160,8 +132,8 @@ public class frmResumenPedido extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCancelar;
     private javax.swing.JButton btnEnviar;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTablePedidos;
+    private javax.swing.JLabel jLabelDireccion;
+    private javax.swing.JLabel jLabelMedicamento;
     private javax.swing.JLabel lbltitulo;
     private javax.swing.JPanel panelPedidos;
     // End of variables declaration//GEN-END:variables

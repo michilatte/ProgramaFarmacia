@@ -6,6 +6,7 @@
 package controller;
 
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
 import model.Pedido;
@@ -29,32 +30,17 @@ public class ControllerResumenPedido {
 
     public void controleventos() {
 
-        this.vista.getBtnEnviar().addActionListener(l -> tablalistar());
-        this.vista.getBtnCancelar().addActionListener(l -> vistaregistro());
+        this.vista.getBtnEnviar().addActionListener(l -> mensaje());
+        this.vista.getBtnCancelar().addActionListener(l -> back());
     }
-
-    public void tablalistar() {
-        DefaultTableModel modeloDefault = new DefaultTableModel(new String[]{"Nombre del Medicamento", "Tipo de Medicamento", "Cantidad", "Distribuidor", "Sucursal"}, registro.listapedidos.size());
-        vista.getjTablePedidos().setModel(modeloDefault);
-
-        TableModel modeloDatos = vista.getjTablePedidos().getModel();
-        for (int i = 0; i < registro.listapedidos.size(); i++) {
-            Pedido pedido = registro.listapedidos.get(i);
-            modeloDatos.setValueAt(pedido.getNombre_med(), i, 0);
-            modeloDatos.setValueAt(pedido.getTipo_med(), i, 1);
-            modeloDatos.setValueAt(pedido.getCantidad(), i, 2);
-            modeloDatos.setValueAt(pedido.getDistribuidor(), i, 3);
-            modeloDatos.setValueAt(pedido.getSucursal(), i, 4);
-
-        }
-    }
-     
-    public void vistaregistro() {
-        
-        vista.setVisible(false);
+    
+    public void back(){
         vistaregistro.setVisible(true);
-
+        new ControllerRegistro(vistaregistro);
+        vistaregistro.setLocationRelativeTo(null);
     }
-
+    public void mensaje(){
+        JOptionPane.showMessageDialog(null, "Pedido Enviado");
+    }
     
 }

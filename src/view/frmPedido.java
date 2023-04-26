@@ -29,6 +29,13 @@ public class frmPedido extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
     }
 
+    public JButton getjButtonLimpiar() {
+        return jButtonLimpiar;
+    }
+
+    public void setjButtonLimpiar(JButton jButtonLimpiar) {
+        this.jButtonLimpiar = jButtonLimpiar;
+    }
 
     public JButton getBtnGUARDAR() {
         return btnGUARDAR;
@@ -206,6 +213,8 @@ public class frmPedido extends javax.swing.JFrame {
         checkPrincipal = new javax.swing.JCheckBox();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTablePedidos = new javax.swing.JTable();
+        jButtonLimpiar = new javax.swing.JButton();
+        lbltitulo1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -215,8 +224,8 @@ public class frmPedido extends javax.swing.JFrame {
         panelPedidos.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lbltitulo.setFont(new java.awt.Font("Tempus Sans ITC", 1, 18)); // NOI18N
-        lbltitulo.setText("FARMACIA || PEDIDOS");
-        panelPedidos.add(lbltitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 30, 220, -1));
+        lbltitulo.setText("Lista de Pedidos");
+        panelPedidos.add(lbltitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 330, 220, -1));
 
         btnGUARDAR.setBackground(new java.awt.Color(171, 187, 176));
         btnGUARDAR.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -227,7 +236,7 @@ public class frmPedido extends javax.swing.JFrame {
                 btnGUARDARActionPerformed(evt);
             }
         });
-        panelPedidos.add(btnGUARDAR, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 270, 70, 40));
+        panelPedidos.add(btnGUARDAR, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 270, 70, 30));
 
         rbtn1.setBackground(new java.awt.Color(171, 187, 176));
         buttonGroupDistribuidores.add(rbtn1);
@@ -303,7 +312,15 @@ public class frmPedido extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(jTablePedidos);
 
-        panelPedidos.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 330, 770, 160));
+        panelPedidos.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 370, 770, 160));
+
+        jButtonLimpiar.setBackground(new java.awt.Color(171, 187, 176));
+        jButtonLimpiar.setText("Limpiar");
+        panelPedidos.add(jButtonLimpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 270, -1, 30));
+
+        lbltitulo1.setFont(new java.awt.Font("Tempus Sans ITC", 1, 18)); // NOI18N
+        lbltitulo1.setText("FARMACIA || PEDIDOS");
+        panelPedidos.add(lbltitulo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 30, 220, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -313,7 +330,7 @@ public class frmPedido extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panelPedidos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(panelPedidos, javax.swing.GroupLayout.DEFAULT_SIZE, 544, Short.MAX_VALUE)
         );
 
         pack();
@@ -340,6 +357,7 @@ public class frmPedido extends javax.swing.JFrame {
     private javax.swing.JCheckBox checkPrincipal;
     private javax.swing.JCheckBox checkSecundaria;
     private javax.swing.JComboBox<String> cmbxTipoMed;
+    private javax.swing.JButton jButtonLimpiar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -348,6 +366,7 @@ public class frmPedido extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTablePedidos;
     private javax.swing.JLabel lbltitulo;
+    private javax.swing.JLabel lbltitulo1;
     private javax.swing.JPanel panelPedidos;
     private javax.swing.JRadioButton rbtn1;
     private javax.swing.JRadioButton rbtn2;

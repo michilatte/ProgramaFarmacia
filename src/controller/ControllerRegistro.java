@@ -6,12 +6,14 @@
 package controller;
 
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 import javax.swing.ListSelectionModel;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
 import model.Pedido;
+import model.Validaciones;
 import view.*;
 
 /**
@@ -36,33 +38,40 @@ public class ControllerRegistro {
     public void controleventos() {
 
         this.vista.getBtnGUARDAR().addActionListener(l -> guardarPedido());
-
+        //this.vista.getjButtonLimpiar().addActionListener(l -> Limpiar());
     }
 
     public void guardarPedido() {
 
         Pedido pedido = new Pedido();
-        pedido.setNombre_med(this.vista.getTxtNombreMed().getText());
-        pedido.setTipo_med((String) this.vista.getCmbxTipoMed().getSelectedItem());
-        int cantidad = Integer.parseInt(this.vista.getTxtCantidad().getText());
-        pedido.setCantidad(cantidad);
+        if (validaciones() == true) {
+            pedido.setNombre_med(this.vista.getTxtNombreMed().getText());
+            pedido.setTipo_med((String) this.vista.getCmbxTipoMed().getSelectedItem());
+            int cantidad = Integer.parseInt(this.vista.getTxtCantidad().getText());
+            pedido.setCantidad(cantidad);
 
-        String distribuidor = "";
-        if (this.vista.getRbtn1().isSelected()) {
-            distribuidor = "COFARMA";
-        }
-        if (this.vista.getRbtn2().isSelected()) {
-            distribuidor = "EMPSEPHAR";
-        }
-        if (this.vista.getRbtn3().isSelected()) {
-            distribuidor = "CEMEFAR";
-        }
-        pedido.setDistribuidor(distribuidor);
-        pedido.setSucursal(Principal() + " " + Secundaria());
+            String distribuidor = "";
+            if (this.vista.getRbtn1().isSelected()) {
+                distribuidor = "COFARMA";
+            }
+            if (this.vista.getRbtn2().isSelected()) {
+                distribuidor = "EMPSEPHAR";
+            }
+            if (this.vista.getRbtn3().isSelected()) {
+                distribuidor = "CEMEFAR";
+            }
+            pedido.setDistribuidor(distribuidor);
+            pedido.setSucursal(Principal() + " " + Secundaria());
 
-        listapedidos.add(pedido);
-        tablalistar();
-        //vervista();
+            try{
+                listapedidos.add(pedido);
+                tablalistar();
+            }catch(Exception ex){
+                ex.getMessage();
+            }
+            vervista();
+            //Limpiar();
+        }
 
     }
 
@@ -117,4 +126,45 @@ public class ControllerRegistro {
 
     }
 
+    public boolean validaciones() {
+        Validaciones validar = new Validaciones();
+        boolean validado = false;
+        if (!this.vista.getTxtNombreMed().getText().isEmpty()) {
+            if (validar.validarCadena(this.vista.getTxtNombreMed().getText())) {
+
+                if (this.vista.getCmbxTipoMed().getSelectedIndex() != 0) {
+
+                    if (!this.vista.getTxtCantidad().getText().isEmpty()) {
+                        if (validar.validarNumeros(this.vista.getTxtCantidad().getText())) {
+
+                            if ((this.vista.getCheckPrincipal().isSelected()) || (this.vista.getCheckSecundaria().isSelected())) {
+                                validado = true;
+                            } else {
+                                JOptionPane.showMessageDialog(null, "Es necesario seleccionar una sucursal");
+                            }
+                            if (this.vista.getButtonGroupDistribuidores().getButtonCount() != 0) {
+                                validado = true;
+                            } else {
+                                JOptionPane.showMessageDialog(null,"Seleccione un distribuidor");
+                            }
+
+                        } else {
+                            JOptionPane.showMessageDialog(null,"Ingrese una cantidad en numeros");
+                        }
+                    } else {
+                        JOptionPane.showMessageDialog(null,"Ingrese una cantidad de producto a comprar");
+                    }
+                } else {
+                    JOptionPane.showMessageDialog(null,"Debe seleccionar un tipo de medicamento");
+                }
+
+            } else {
+                JOptionPane.showMessageDialog(null,"Nombre de medicamento incorrecto");
+            }
+        } else {
+           JOptionPane.showMessageDialog(null,"Ingrese un nombre de Medicamento");
+        }
+
+        return validado;
+    }
 }

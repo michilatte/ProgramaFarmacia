@@ -65,6 +65,7 @@ public class ControllerRegistro {
             pedido.setSucursal(Principal() + " " + Secundaria());
 
             try {
+                Pedido pedido = new Pedido(this.pedido.getNombre_med(), this.pedido.getTipo_med(),this.pedido.getCantidad(), this.pedido.getDistribuidor(), this.pedido.getSucursal());
                 listapedidos.add(pedido);
                 tablalistar();
             } catch (Exception ex) {
@@ -116,12 +117,12 @@ public class ControllerRegistro {
         vistapedido.getjLabelMedicamento().setText(num+" unidades del "+tipo+" "+nom);
         
         if(vista.getCheckPrincipal().isSelected()&&vista.getCheckSecundaria().isSelected()){
-            vistapedido.getjLabelDireccion().setText("Farmacia Principal y Secundaria - La Calle de la Rosa n. 28 \n"
-                    + " y la Calle Alcazabilla n. 3");
+            vistapedido.getjLabelDireccion().setText("Para la farmacia situada en Calle de la Rosa n. 28 \n"
+                    + " y para la situada en Calle Alcazabilla n. 3");
         }else if(vista.getCheckPrincipal().isSelected()){
-            vistapedido.getjLabelDireccion().setText("Farmacia Principal - La Calle de la Rosa n. 28");
+            vistapedido.getjLabelDireccion().setText("Para la farmacia situada en Calle de la Rosa n. 28");
         }else if(vista.getCheckSecundaria().isSelected()){
-            vistapedido.getjLabelDireccion().setText("Farmacia Secundaria - La Calle Alcazabilla n. 3");
+            vistapedido.getjLabelDireccion().setText("Para la farmacia situada en Calle Alcazabilla n. 3");
         }
         
         //frmResumenPedido.jLabelMedicamento.setText(nom);

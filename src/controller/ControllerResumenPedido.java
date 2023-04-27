@@ -45,7 +45,7 @@ public class ControllerResumenPedido {
 
     public void mensaje() {
         JOptionPane.showMessageDialog(null, "Pedido Enviado");
-
+        this.vista.dispose();
     }
 
     public void ingresar(String nombre, int cantidad, String tipo) {

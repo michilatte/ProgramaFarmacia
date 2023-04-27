@@ -189,6 +189,16 @@ public class frmPedido extends javax.swing.JFrame {
     public void setjTablePedidos(JTable jTablePedidos) {
         this.jTablePedidos = jTablePedidos;
     }
+
+    public JLabel getjLabelSumaCantidad() {
+        return jLabelSumaCantidad;
+    }
+
+    public void setjLabelSumaCantidad(JLabel jLabelSumaCantidad) {
+        this.jLabelSumaCantidad = jLabelSumaCantidad;
+    }
+    
+    
     
     
     @SuppressWarnings("unchecked")
@@ -216,6 +226,7 @@ public class frmPedido extends javax.swing.JFrame {
         jTablePedidos = new javax.swing.JTable();
         jButtonLimpiar = new javax.swing.JButton();
         lbltitulo1 = new javax.swing.JLabel();
+        jLabelSumaCantidad = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -324,6 +335,7 @@ public class frmPedido extends javax.swing.JFrame {
         lbltitulo1.setFont(new java.awt.Font("Tempus Sans ITC", 1, 18)); // NOI18N
         lbltitulo1.setText("FARMACIA || PEDIDOS");
         panelPedidos.add(lbltitulo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 30, 220, -1));
+        panelPedidos.add(jLabelSumaCantidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 540, 160, 30));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -333,7 +345,7 @@ public class frmPedido extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panelPedidos, javax.swing.GroupLayout.DEFAULT_SIZE, 544, Short.MAX_VALUE)
+            .addComponent(panelPedidos, javax.swing.GroupLayout.DEFAULT_SIZE, 581, Short.MAX_VALUE)
         );
 
         pack();
@@ -366,6 +378,7 @@ public class frmPedido extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabelSumaCantidad;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTablePedidos;
     private javax.swing.JLabel lbltitulo;

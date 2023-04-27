@@ -72,9 +72,7 @@ public class Pedido {
     }
     
     public void mostrarDatos() {
-        System.out.printf("%-20S%-20S%-20S%-20S%-20S%n", nombre_med, tipo_med, cantidad, distribuidor, sucursal);
+        System.out.printf("%-30S%-30S%-30S%-30S%-30S%n", nombre_med, tipo_med, cantidad, distribuidor, sucursal);
     }
-    
-    
 }
 

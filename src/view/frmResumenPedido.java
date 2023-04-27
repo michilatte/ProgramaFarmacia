@@ -68,7 +68,14 @@ public class frmResumenPedido extends javax.swing.JFrame {
     public void setPanelPedidos(JPanel panelPedidos) {
         this.panelPedidos = panelPedidos;
     }
-    
+
+    public JLabel getjLabelNumero() {
+        return jLabelNumero;
+    }
+
+    public void setjLabelNumero(JLabel jLabelNumero) {
+        this.jLabelNumero = jLabelNumero;
+    }
     
 
     @SuppressWarnings("unchecked")
@@ -81,6 +88,7 @@ public class frmResumenPedido extends javax.swing.JFrame {
         btnCancelar = new javax.swing.JButton();
         jLabelDireccion = new javax.swing.JLabel();
         jLabelMedicamento = new javax.swing.JLabel();
+        jLabelNumero = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -112,8 +120,9 @@ public class frmResumenPedido extends javax.swing.JFrame {
             }
         });
         panelPedidos.add(btnCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 300, 90, 30));
-        panelPedidos.add(jLabelDireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 160, 520, 70));
-        panelPedidos.add(jLabelMedicamento, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 100, 510, 30));
+        panelPedidos.add(jLabelDireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 180, 520, 70));
+        panelPedidos.add(jLabelMedicamento, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, 510, 30));
+        panelPedidos.add(jLabelNumero, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 80, 30));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -147,6 +156,7 @@ public class frmResumenPedido extends javax.swing.JFrame {
     private javax.swing.JButton btnEnviar;
     private javax.swing.JLabel jLabelDireccion;
     private javax.swing.JLabel jLabelMedicamento;
+    private javax.swing.JLabel jLabelNumero;
     private javax.swing.JLabel lbltitulo;
     private javax.swing.JPanel panelPedidos;
     // End of variables declaration//GEN-END:variables

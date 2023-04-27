@@ -65,9 +65,12 @@ public class ControllerRegistro {
             pedido.setSucursal(Principal() + " " + Secundaria());
 
             try {
-                Pedido pedido = new Pedido(this.pedido.getNombre_med(), this.pedido.getTipo_med(),this.pedido.getCantidad(), this.pedido.getDistribuidor(), this.pedido.getSucursal());
+                Pedido pedido = new Pedido(this.pedido.getNombre_med(), this.pedido.getTipo_med(), this.pedido.getCantidad(), this.pedido.getDistribuidor(), this.pedido.getSucursal());
                 listapedidos.add(pedido);
                 tablalistar();
+
+                contar();
+                //listar();
             } catch (Exception ex) {
                 ex.getMessage();
             }
@@ -97,14 +100,35 @@ public class ControllerRegistro {
         vistapedido.setVisible(true);
         new ControllerResumenPedido(vistapedido);
         vistapedido.setLocationRelativeTo(null);
-        vistapedido.setTitle("Pedido al Distribuidor "+distribuidor);
+        vistapedido.setTitle("Pedido al Distribuidor " + distribuidor);
         mostrarLabel1();
+    }
+
+    public void listar() {
+
+        System.out.println("LISTA PEDIDOS");
+        System.out.printf("%-30S%-30S%-30S%-30S%-30S%n", "Nombre del Medicamento", "Tipo de Medicamento", "Cantidad", "Distribuidor", "Sucursal");
+        for (int i = 0; i < listapedidos.size(); i++) {
+            listapedidos.get(i).mostrarDatos();
+        }
+    }
+
+    public void contar() {
+
+        int suma;
+
+        for (int i = 0; i < listapedidos.size(); i++) {
+            suma = listapedidos.get(i).getCantidad();
+
+            String numero = Integer.toString(suma);
+
+        }
 
     }
 
     public void mostrarLabel1() {
         //10 unidades del antibiótico amoxicilina. 
-       
+
         int num = 0;
         num = Integer.parseInt(vista.getTxtCantidad().getText());
 
@@ -113,20 +137,32 @@ public class ControllerRegistro {
 
         String nom = vista.getTxtNombreMed().getText();
 
-        vistapedido.getjLabelMedicamento().setText(num+" unidades del "+tipo+" "+nom);
-        
-        if(vista.getCheckPrincipal().isSelected()&&vista.getCheckSecundaria().isSelected()){
+        vistapedido.getjLabelMedicamento().setText(num + " unidades del " + tipo + " " + nom);
+
+        if (vista.getCheckPrincipal().isSelected() && vista.getCheckSecundaria().isSelected()) {
             vistapedido.getjLabelDireccion().setText("Para la farmacia situada en Calle de la Rosa n. 28 \n"
                     + " y para la situada en Calle Alcazabilla n. 3");
-        }else if(vista.getCheckPrincipal().isSelected()){
+        } else if (vista.getCheckPrincipal().isSelected()) {
             vistapedido.getjLabelDireccion().setText("Para la farmacia situada en Calle de la Rosa n. 28");
-        }else if(vista.getCheckSecundaria().isSelected()){
+        } else if (vista.getCheckSecundaria().isSelected()) {
             vistapedido.getjLabelDireccion().setText("Para la farmacia situada en Calle Alcazabilla n. 3");
         }
+
+        int precioTotal = 0;
+
+        for (Pedido objeto : listapedidos) {
+            precioTotal += objeto.getCantidad();
+            String numero= Integer. toString(precioTotal);
+            vista.getjLabelSumaCantidad().setText("Cantidad Total = "+numero);
+        }
+
         
+
+        //int tamanio =listapedidos.size();
+        //String numero= Integer. toString(tamanio);
+        //vistapedido.getjLabelNumero().setText(numero);
         //frmResumenPedido.jLabelMedicamento.setText(nom);
         //frmResumenPedido.jLabelMedicamento.setText(num + " unidades del " + tipo + " " + nom);
-
     }
 
     public String Principal() {

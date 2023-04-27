@@ -113,7 +113,6 @@ public class ControllerRegistro {
 
         String nom = vista.getTxtNombreMed().getText();
 
-        
         vistapedido.getjLabelMedicamento().setText(num+" unidades del "+tipo+" "+nom);
         
         if(vista.getCheckPrincipal().isSelected()&&vista.getCheckSecundaria().isSelected()){

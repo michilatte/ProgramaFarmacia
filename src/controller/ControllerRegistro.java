@@ -24,7 +24,7 @@ public class ControllerRegistro {
 
     Pedido pedido = new Pedido();
     ArrayList<Pedido> listapedidos = new ArrayList<>();
-    private frmPedido vista = new frmPedido();
+    frmPedido vista = new frmPedido();
     frmResumenPedido vistapedido = new frmResumenPedido();
 
     public ControllerRegistro() {
@@ -61,6 +61,7 @@ public class ControllerRegistro {
                 distribuidor = "CEMEFAR";
             }
             pedido.setDistribuidor(distribuidor);
+
             pedido.setSucursal(Principal() + " " + Secundaria());
 
             try {
@@ -106,7 +107,7 @@ public class ControllerRegistro {
 
         String tipo = "";
         tipo = (String) vista.getCmbxTipoMed().getSelectedItem();
-        
+
         String nom = vista.getTxtNombreMed().getText();
 
         frmResumenPedido.jLabelMedicamento.setText(nom);
@@ -143,13 +144,13 @@ public class ControllerRegistro {
                     if (!this.vista.getTxtCantidad().getText().isEmpty()) {
                         if (validar.validarNumeros(this.vista.getTxtCantidad().getText())) {
 
-                            if ((this.vista.getCheckPrincipal().isSelected()) || (this.vista.getCheckSecundaria().isSelected())) {
-                                validado = true;
-                            } else {
-                                JOptionPane.showMessageDialog(null, "Es necesario seleccionar una sucursal");
-                            }
-                            if (this.vista.getButtonGroupDistribuidores().getButtonCount() != 0) {
-                                validado = true;
+                            if (this.vista.getRbtn1().isSelected() || this.vista.getRbtn2().isSelected() || this.vista.getRbtn3().isSelected()) {
+
+                                if ((this.vista.getCheckPrincipal().isSelected()) || (this.vista.getCheckSecundaria().isSelected())) {
+                                    validado = true;
+                                } else {
+                                    JOptionPane.showMessageDialog(null, "Es necesario seleccionar una sucursal");
+                                }
                             } else {
                                 JOptionPane.showMessageDialog(null, "Seleccione un distribuidor");
                             }

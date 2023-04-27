@@ -27,6 +27,7 @@ public class frmPedido extends javax.swing.JFrame {
     public frmPedido() {
         initComponents();
         this.setLocationRelativeTo(null);
+        this.setTitle("FARMACIA");
     }
 
     public JButton getjButtonLimpiar() {

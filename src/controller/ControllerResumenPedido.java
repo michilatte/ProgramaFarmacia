@@ -19,6 +19,11 @@ import view.frmResumenPedido;
  */
 public class ControllerResumenPedido {
 
+    //para mostrar en label
+    private String nombre;
+    private int cantidad;
+    private String tipo;
+
     ControllerRegistro registro = new ControllerRegistro();
     frmResumenPedido vista = new frmResumenPedido();
     frmPedido vistaregistro = new frmPedido();
@@ -26,7 +31,6 @@ public class ControllerResumenPedido {
     public ControllerResumenPedido(frmResumenPedido vista) {
         this.vista = vista;
         controleventos();
-        //mostrarLabel();
     }
 
     public void controleventos() {
@@ -44,15 +48,23 @@ public class ControllerResumenPedido {
 
     }
 
-    /*public void mostrarLabel() {
-        try {
-                 int num = 0; num = Integer.parseInt(vistaregistro.getTxtCantidad().getText());
-                 String tipo = ""; tipo = (String) vistaregistro.getCmbxTipoMed().getSelectedItem();
-                 String nom = ""; nom = vistaregistro.getTxtNombreMed().getText();
-                 frmResumenPedido.jLabelMedicamento.setText(num + " unidades del " + tipo + " " + nom);
-                
-        }catch(Exception ex){
-            
-        }
-    }*/
+    public void ingresar(String nombre, int cantidad, String tipo) {
+        this.nombre = nombre;
+        this.cantidad = cantidad;
+        this.tipo = tipo;
+    }
+
+    public void mostrarLabel() {
+
+        //vista.getjLabelMedicamento().setText(cantidad+" unidades del "+tipo+" "+nombre);
+        
+        int num = 0;
+        num = Integer.parseInt(vistaregistro.getTxtCantidad().getText());
+        String tipo = "";
+        tipo = (String) vistaregistro.getCmbxTipoMed().getSelectedItem();
+        String nom = "";
+        nom = vistaregistro.getTxtNombreMed().getText();
+        
+        frmResumenPedido.jLabelMedicamento.setText(num + " unidades del " + tipo + " " + nom);
+    }
 }

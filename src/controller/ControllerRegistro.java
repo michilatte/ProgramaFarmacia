@@ -115,6 +115,9 @@ public class ControllerRegistro {
 
         
         vistapedido.getjLabelMedicamento().setText(num+" unidades del "+tipo+" "+nom);
+        
+        //AQUI FALTA EL OTRO LABEL HAZLE XD
+        
         //frmResumenPedido.jLabelMedicamento.setText(nom);
         //frmResumenPedido.jLabelMedicamento.setText(num + " unidades del " + tipo + " " + nom);
 

@@ -112,8 +112,8 @@ public class frmResumenPedido extends javax.swing.JFrame {
             }
         });
         panelPedidos.add(btnCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 300, 90, 30));
-        panelPedidos.add(jLabelDireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 160, 390, 30));
-        panelPedidos.add(jLabelMedicamento, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 100, 390, 30));
+        panelPedidos.add(jLabelDireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 160, 520, 70));
+        panelPedidos.add(jLabelMedicamento, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 100, 510, 30));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

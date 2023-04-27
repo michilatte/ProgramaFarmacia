@@ -104,7 +104,6 @@ public class ControllerRegistro {
     public void mostrarLabel1() {
         //10 unidades del antibiótico amoxicilina. 
        
-        
         int num = 0;
         num = Integer.parseInt(vista.getTxtCantidad().getText());
 
@@ -116,7 +115,14 @@ public class ControllerRegistro {
         
         vistapedido.getjLabelMedicamento().setText(num+" unidades del "+tipo+" "+nom);
         
-        //AQUI FALTA EL OTRO LABEL HAZLE XD
+        if(vista.getCheckPrincipal().isSelected()&&vista.getCheckSecundaria().isSelected()){
+            vistapedido.getjLabelDireccion().setText("Farmacia Principal y Secundaria - La Calle de la Rosa n. 28 \n"
+                    + " y la Calle Alcazabilla n. 3");
+        }else if(vista.getCheckPrincipal().isSelected()){
+            vistapedido.getjLabelDireccion().setText("Farmacia Principal - La Calle de la Rosa n. 28");
+        }else if(vista.getCheckSecundaria().isSelected()){
+            vistapedido.getjLabelDireccion().setText("Farmacia Secundaria - La Calle Alcazabilla n. 3");
+        }
         
         //frmResumenPedido.jLabelMedicamento.setText(nom);
         //frmResumenPedido.jLabelMedicamento.setText(num + " unidades del " + tipo + " " + nom);

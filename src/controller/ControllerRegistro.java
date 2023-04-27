@@ -26,6 +26,7 @@ public class ControllerRegistro {
     ArrayList<Pedido> listapedidos = new ArrayList<>();
     frmPedido vista = new frmPedido();
     frmResumenPedido vistapedido = new frmResumenPedido();
+    String distribuidor = "";
 
     public ControllerRegistro() {
     }
@@ -50,7 +51,6 @@ public class ControllerRegistro {
             int cantidad = Integer.parseInt(this.vista.getTxtCantidad().getText());
             pedido.setCantidad(cantidad);
 
-            String distribuidor = "";
             if (this.vista.getRbtn1().isSelected()) {
                 distribuidor = "COFARMA";
             }
@@ -96,12 +96,15 @@ public class ControllerRegistro {
         vistapedido.setVisible(true);
         new ControllerResumenPedido(vistapedido);
         vistapedido.setLocationRelativeTo(null);
+        vistapedido.setTitle("Pedido al Distribuidor "+distribuidor);
         mostrarLabel1();
 
     }
 
     public void mostrarLabel1() {
         //10 unidades del antibiótico amoxicilina. 
+       
+        
         int num = 0;
         num = Integer.parseInt(vista.getTxtCantidad().getText());
 
@@ -110,8 +113,10 @@ public class ControllerRegistro {
 
         String nom = vista.getTxtNombreMed().getText();
 
-        frmResumenPedido.jLabelMedicamento.setText(nom);
-        frmResumenPedido.jLabelMedicamento.setText(num + " unidades del " + tipo + " " + nom);
+        
+        vistapedido.getjLabelMedicamento().setText(num+" unidades del "+tipo+" "+nom);
+        //frmResumenPedido.jLabelMedicamento.setText(nom);
+        //frmResumenPedido.jLabelMedicamento.setText(num + " unidades del " + tipo + " " + nom);
 
     }
 

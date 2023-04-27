@@ -65,6 +65,6 @@ public class ControllerResumenPedido {
         String nom = "";
         nom = vistaregistro.getTxtNombreMed().getText();
         
-        frmResumenPedido.jLabelMedicamento.setText(num + " unidades del " + tipo + " " + nom);
+        //frmResumenPedido.jLabelMedicamento.setText(num + " unidades del " + tipo + " " + nom);
     }
 }

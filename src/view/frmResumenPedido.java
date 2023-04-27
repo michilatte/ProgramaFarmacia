@@ -26,7 +26,7 @@ public class frmResumenPedido extends javax.swing.JFrame {
     }
 
     public void setjLabelDireccion(JLabel jLabelDireccion) {
-        frmResumenPedido.jLabelDireccion = jLabelDireccion;
+        this.jLabelDireccion = jLabelDireccion;
     }
 
     public JLabel getjLabelMedicamento() {
@@ -34,10 +34,8 @@ public class frmResumenPedido extends javax.swing.JFrame {
     }
 
     public void setjLabelMedicamento(JLabel jLabelMedicamento) {
-        frmResumenPedido.jLabelMedicamento = jLabelMedicamento;
+        this.jLabelMedicamento = jLabelMedicamento;
     }
-
-    
 
     public JButton getBtnCancelar() {
         return btnCancelar;
@@ -147,8 +145,8 @@ public class frmResumenPedido extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCancelar;
     private javax.swing.JButton btnEnviar;
-    public static javax.swing.JLabel jLabelDireccion;
-    public static javax.swing.JLabel jLabelMedicamento;
+    private javax.swing.JLabel jLabelDireccion;
+    private javax.swing.JLabel jLabelMedicamento;
     private javax.swing.JLabel lbltitulo;
     private javax.swing.JPanel panelPedidos;
     // End of variables declaration//GEN-END:variables

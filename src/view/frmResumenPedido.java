@@ -15,28 +15,29 @@ import javax.swing.JTable;
  * @author USUARIO
  */
 public class frmResumenPedido extends javax.swing.JFrame {
-
     
     public frmResumenPedido() {
         initComponents();
         this.setLocationRelativeTo(null);
     }
 
-    public static JLabel getjLabelDireccion() {
+    public JLabel getjLabelDireccion() {
         return jLabelDireccion;
     }
 
-    public static void setjLabelDireccion(JLabel jLabelDireccion) {
+    public void setjLabelDireccion(JLabel jLabelDireccion) {
         frmResumenPedido.jLabelDireccion = jLabelDireccion;
     }
 
-    public static JLabel getjLabelMedicamento() {
+    public JLabel getjLabelMedicamento() {
         return jLabelMedicamento;
     }
 
-    public static void setjLabelMedicamento(JLabel jLabelMedicamento) {
+    public void setjLabelMedicamento(JLabel jLabelMedicamento) {
         frmResumenPedido.jLabelMedicamento = jLabelMedicamento;
     }
+
+    
 
     public JButton getBtnCancelar() {
         return btnCancelar;
@@ -97,7 +98,6 @@ public class frmResumenPedido extends javax.swing.JFrame {
         btnEnviar.setBackground(new java.awt.Color(171, 187, 176));
         btnEnviar.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         btnEnviar.setText("Enviar");
-        btnEnviar.setToolTipText("");
         btnEnviar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnEnviarActionPerformed(evt);
@@ -108,18 +108,13 @@ public class frmResumenPedido extends javax.swing.JFrame {
         btnCancelar.setBackground(new java.awt.Color(171, 187, 176));
         btnCancelar.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         btnCancelar.setText("Cancelar");
-        btnCancelar.setToolTipText("");
         btnCancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCancelarActionPerformed(evt);
             }
         });
         panelPedidos.add(btnCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 300, 90, 30));
-
-        jLabelDireccion.setText("b:");
         panelPedidos.add(jLabelDireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 160, 390, 30));
-
-        jLabelMedicamento.setText("a:");
         panelPedidos.add(jLabelMedicamento, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 100, 390, 30));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());

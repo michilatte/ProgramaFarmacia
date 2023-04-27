@@ -6,7 +6,6 @@
 package controller;
 
 import java.util.ArrayList;
-import java.util.Vector;
 import javax.swing.JOptionPane;
 import javax.swing.ListSelectionModel;
 import javax.swing.event.ListSelectionEvent;
@@ -64,10 +63,8 @@ public class ControllerRegistro {
             pedido.setDistribuidor(distribuidor);
 
             pedido.setSucursal(Principal() + " " + Secundaria());
-            
-            
+
             try {
-                Pedido pedido = new Pedido(this.pedido.getNombre_med(), this.pedido.getTipo_med(),this.pedido.getCantidad(),this.pedido.getDistribuidor(),this.pedido.getSucursal());
                 listapedidos.add(pedido);
                 tablalistar();
             } catch (Exception ex) {
@@ -81,7 +78,7 @@ public class ControllerRegistro {
     public void tablalistar() {
         DefaultTableModel modeloDefault = new DefaultTableModel(new String[]{"Nombre del Medicamento", "Tipo de Medicamento", "Cantidad", "Distribuidor", "Sucursal"}, listapedidos.size());
         vista.getjTablePedidos().setModel(modeloDefault);
-        
+
         TableModel modeloDatos = vista.getjTablePedidos().getModel();
         for (int i = 0; i < listapedidos.size(); i++) {
             Pedido pedido = listapedidos.get(i);
@@ -90,7 +87,7 @@ public class ControllerRegistro {
             modeloDatos.setValueAt(pedido.getCantidad(), i, 2);
             modeloDatos.setValueAt(pedido.getDistribuidor(), i, 3);
             modeloDatos.setValueAt(pedido.getSucursal(), i, 4);
-            
+
         }
     }
 
@@ -99,14 +96,14 @@ public class ControllerRegistro {
         vistapedido.setVisible(true);
         new ControllerResumenPedido(vistapedido);
         vistapedido.setLocationRelativeTo(null);
-        vistapedido.setTitle("Pedido al Distribuidor " + distribuidor);
+        vistapedido.setTitle("Pedido al Distribuidor "+distribuidor);
         mostrarLabel1();
 
     }
 
     public void mostrarLabel1() {
         //10 unidades del antibiótico amoxicilina. 
-
+       
         int num = 0;
         num = Integer.parseInt(vista.getTxtCantidad().getText());
 
@@ -115,19 +112,21 @@ public class ControllerRegistro {
 
         String nom = vista.getTxtNombreMed().getText();
 
-        vistapedido.getjLabelMedicamento().setText(num + " unidades del " + tipo + " " + nom);
-
-        if (vista.getCheckPrincipal().isSelected() && vista.getCheckSecundaria().isSelected()) {
+        
+        vistapedido.getjLabelMedicamento().setText(num+" unidades del "+tipo+" "+nom);
+        
+        if(vista.getCheckPrincipal().isSelected()&&vista.getCheckSecundaria().isSelected()){
             vistapedido.getjLabelDireccion().setText("Farmacia Principal y Secundaria - La Calle de la Rosa n. 28 \n"
                     + " y la Calle Alcazabilla n. 3");
-        } else if (vista.getCheckPrincipal().isSelected()) {
+        }else if(vista.getCheckPrincipal().isSelected()){
             vistapedido.getjLabelDireccion().setText("Farmacia Principal - La Calle de la Rosa n. 28");
-        } else if (vista.getCheckSecundaria().isSelected()) {
+        }else if(vista.getCheckSecundaria().isSelected()){
             vistapedido.getjLabelDireccion().setText("Farmacia Secundaria - La Calle Alcazabilla n. 3");
         }
-
+        
         //frmResumenPedido.jLabelMedicamento.setText(nom);
         //frmResumenPedido.jLabelMedicamento.setText(num + " unidades del " + tipo + " " + nom);
+
     }
 
     public String Principal() {
